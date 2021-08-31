@@ -4,6 +4,7 @@ services:
     image: postgres
     volumes:
       - rails_postgre:/var/lib/postgresql/data
+      - rails_gem_data:/usr/local/bundle
     environment:
       - POSTGRES_PASSWORD=password
   web:
@@ -17,4 +18,6 @@ services:
       - db
 volumes:
   rails_postgre:
+    external: true
+  rails_gem_data:
     external: true
